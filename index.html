@@ -7,9 +7,57 @@
     <title>My Weather-App</title>
 </head>
 <body>
-    <h2>Accra, GH</h2>
-    <p>Last updated on Oct 04, 2021 at 09:26</p>
-    <img src="" alt="weather-icon">
-    <h3>12 °C</h3>
+    <div class="application">
+        <div class="main-container">
+            <div class="Weather-body">
+                <!-- Form for search engine -->
+                <div class="search-form">
+                    <form class="search-engine">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter a city..." id="search-city-input">
+                            <input type="submit" value="Search" class="btn btn-primary" <i class="fa fa-search fa-fw"></i>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- display of weather information  -->
+                <div class="weather-info">
+                    <div class="row">
+                        <h1 class="description" id="weather-description">Cloudy</h1>
+                        <div class="city-name">
+                            <h3>Accra, GH <i class="fas fa-home"></i></h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="main-temp">
+                                    <span><img src="" alt="weather-icon">
+                                </div>
+                                <div class="col-12">
+                                    <span>
+                                        <h3 class="main-temperature">
+                                            <span id="main-temp">12 </span>
+                                            <a href="" id="celciusLink">°C</a>|
+                                            <a href="" id="fahrenheitLink">°F
+                                    </span>
+                                    </h3>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Time and Date -->
+                    <div class="Time-info">
+                        <div class="my-clock">
+                            <h3 class="time">
+                                Wednesay <br /> 12:45
+                            </h3>
+                        </div>
+
+
+
+
+
+        </div>
+    </div>
 </body>
 </html>
