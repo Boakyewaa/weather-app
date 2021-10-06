@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/747b9917a2.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
+
 <body>
     <div class="application">
         <div class="main-container">
@@ -18,8 +21,10 @@
                 <div class="search-form">
                     <form class="search-engine">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter a city..." id="search-city-input">
-                            <input type="submit" value="Search" class="btn btn-primary" <i class="fa fa-search fa-fw"></i>
+                            <input type="text" class="form-control" placeholder="Enter a city..."
+                                id="search-city-input">
+                            <input type="submit" value="Search" class="btn btn-primary" <i
+                                class="fa fa-search fa-fw"></i>
                         </div>
                     </form>
                 </div>
@@ -42,8 +47,7 @@
                                             <span id="main-temp">12 </span>
                                             <a href="" id="celciusLink">°C</a>|
                                             <a href="" id="fahrenheitLink">°F</a>
-                                    </span>
-                                    </h3>
+                                        </h3>
                                     </span>
                                 </div>
                             </div>
@@ -56,120 +60,146 @@
                                 Wednesay <br /> 12:45
                             </h3>
                         </div>
-                </div>
-                    
-                        <!-- Creating list of other days weather information -->
-                        <div class="container">
+
+                        <!-- Weather details -->
+
+                        <div class="weather-details">
                             <div class="row">
-                                <div class="col">
-                                    <h4 class="days">
-                                        Thur
-                                    </h4>
-                                    <img src="" alt="weather-icon" class="icon-size">
-                                    <br />
-                                    <span class="max-temp">
-                                        29&deg;C
-                                    </span>
-                                    <br />
-                                    <span class="min-temp">
-                                        25&deg;C
-                                    </span>
+                                <div class="col-8 col-sm-4">
+                                    <span class="details"> Wind </span><br />
+                                    <span id="wind"><small>21km/h</small></span>
                                 </div>
-                        
-                        
-                                <!--Day 2 -->
-                        
-                                <div class="col">
-                                    <h4 class="days">
-                                        Fri
-                                    </h4>
-                                    <img src="" alt="weather-icon" class="icon-size">
-                                    <br />
-                                    <span class="max-temp">
-                                        29&deg;C
-                                    </span>
-                                    <br />
-                                    <span class="min-temp">
-                                        25&deg;C
-                                    </span>
+                                <div class="col-8 col-sm-4">
+                                    <span class="details">Humidity</span><br />
+                                    <span id="humidity"><small>94%</small></span>
                                 </div>
-                        
-                                <!-- day 3 -->
-                        
-                                <div class="col">
-                                    <h4 class="days">
-                                        Sat
-                                    </h4>
-                                    <img src="" alt="weather-icon" class="icon-size">
-                                    <br />
-                                    <span class="max-temp">
-                                        29&deg;C
-                                    </span>
-                                    <br />
-                                    <span class="min-temp">
-                                        25&deg;C
-                                    </span>
-                                </div>
-                                <!--Day 4 -->
-                        
-                                <div class="col">
-                                    <h4 class="days">
-                                        Sun
-                                    </h4>
-                                    <img src="" alt="weather-icon" class="icon-size">
-                                    <br />
-                                    <span class="max-temp">
-                                        29&deg;C
-                                    </span>
-                                    <br />
-                                    <span class="min-temp">
-                                        25&deg;C
-                                    </span>
-                                </div>
-                                <!--Day 5 -->
-                                <div class="col">
-                        
-                                    <h4 class="days">
-                                        Mon
-                                    </h4>
-                                    <img src="" alt="weather-icon" class="icon-size">
-                                    <br />
-                                    <span class="max-temp">
-                                        29&deg;C
-                                    </span>
-                                    <br />
-                                    <span class="min-temp">
-                                        25&deg;C
-                                    </span>
-                        
-                                </div>
-                                <!--Day 6 -->
-                                <div class="col-12 col-sm-2">
-                        
-                                    <h4 class="days">
-                                        Tue
-                                    </h4>
-                                    <img src="" alt="weather-icon" class="icon-size">
-                                    <br />
-                                    <span class="max-temp">
-                                        29&deg;C
-                                    </span>
-                                    <br />
-                                    <span class="min-temp">
-                                        25&deg;C
-                                    </span>
+                                <div class="col-8 col-sm-4">
+                                    <span class="details">Pressure</span> <br />
+                                    <span id="pressure"><small>1011mb</small></span>
                                 </div>
                             </div>
                         </div>
-                        <!-- Footer -->
-                        <div>
-                            <footer>
-                                This project is coded by <span class="coder-name">Berlie </span> and is <a href="">open-sourced on Github</a>
-                                and <a href="">hosted on Netlify</a>
-                            </footer>
+
+                    </div>
+                </div>
+
+
+
+
+                <!-- Creating list of other days weather information -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="days">
+                                Thur
+                            </h4>
+                            <img src="" alt="weather-icon" class="icon-size">
+                            <br />
+                            <span class="max-temp">
+                                29&deg;C
+                            </span>
+                            <br />
+                            <span class="min-temp">
+                                25&deg;C
+                            </span>
                         </div>
+
+
+                        <!--Day 2 -->
+
+                        <div class="col">
+                            <h4 class="days">
+                                Fri
+                            </h4>
+                            <img src="" alt="weather-icon" class="icon-size">
+                            <br />
+                            <span class="max-temp">
+                                29&deg;C
+                            </span>
+                            <br />
+                            <span class="min-temp">
+                                25&deg;C
+                            </span>
+                        </div>
+
+                        <!-- day 3 -->
+
+                        <div class="col">
+                            <h4 class="days">
+                                Sat
+                            </h4>
+                            <img src="" alt="weather-icon" class="icon-size">
+                            <br />
+                            <span class="max-temp">
+                                29&deg;C
+                            </span>
+                            <br />
+                            <span class="min-temp">
+                                25&deg;C
+                            </span>
+                        </div>
+                        <!--Day 4 -->
+
+                        <div class="col">
+                            <h4 class="days">
+                                Sun
+                            </h4>
+                            <img src="" alt="weather-icon" class="icon-size">
+                            <br />
+                            <span class="max-temp">
+                                29&deg;C
+                            </span>
+                            <br />
+                            <span class="min-temp">
+                                25&deg;C
+                            </span>
+                        </div>
+                        <!--Day 5 -->
+                        <div class="col">
+
+                            <h4 class="days">
+                                Mon
+                            </h4>
+                            <img src="" alt="weather-icon" class="icon-size">
+                            <br />
+                            <span class="max-temp">
+                                29&deg;C
+                            </span>
+                            <br />
+                            <span class="min-temp">
+                                25&deg;C
+                            </span>
+
+                        </div>
+                        <!--Day 6 -->
+                        <div class="col-12 col-sm-2">
+
+                            <h4 class="days">
+                                Tue
+                            </h4>
+                            <img src="" alt="weather-icon" class="icon-size">
+                            <br />
+                            <span class="max-temp">
+                                29&deg;C
+                            </span>
+                            <br />
+                            <span class="min-temp">
+                                25&deg;C
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer -->
+                <div>
+                    <footer>
+                        This project is coded by <span class="coder-name">Berlie </span> and is <a href="">open-sourced
+                            on Github</a> and <a href="">hosted on Netlify</a>
+                    </footer>
+                </div>
+            </div>
         </div>
     </div>
     <script src="src/index.js"></script>
 </body>
+
 </html>
