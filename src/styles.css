@@ -1,6 +1,7 @@
 .application {
   max-width: 800px;
   margin: 40px auto;
+  background-image: url("images/background-img.jpg");
 }
 .search-engine {
   max-width: 400px;
