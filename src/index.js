@@ -69,19 +69,19 @@ changeTemperature.addEventListener("click", changeToCelcius);
 
 
 // The search engine
-function showWeatherCondition(response){
-  document.querySelector("#city-name").innerHTML = `${response.data.name} <i class="fas fa-home"></i>`;
+function showWeatherCondition(response) {
+  document.querySelector("#city-display").innerHTML = `${response.data.name} <i class="fas fa-home"></i>`;
   document.querySelector("#main-temperature").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed)+"km/h";
-  document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity)+"%";
-  document.querySelector("#pressure").innerHTML = Math.round(response.data.main.pressure)+"mb";
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed) + "km/h";
+  document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity) + "%";
+  document.querySelector("#pressure").innerHTML = Math.round(response.data.main.pressure) + "mb";
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
 }
 
-function search(city){
+function search(city) {
   let apiKey = "1504ebb010471d47f96224deb5dd303e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-   axios.get(apiUrl).then(showWeatherCondition);
+  axios.get(apiUrl).then(showWeatherCondition);
 }
 
 function handleCity(event) {
@@ -94,14 +94,14 @@ let form = document.querySelector("#search-engine");
 form.addEventListener("submit", handleCity);
 
 //current location
-function searchLocation(position){
+function searchLocation(position) {
   let apiKey = "1504ebb010471d47f96224deb5dd303e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showWeatherCondition);
 }
 
-function getCurrentLocation(event){
+function getCurrentLocation(event) {
 
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
