@@ -24,16 +24,23 @@
   position: relative;
   max-width: 400px;
 }
+
+.description {
+  text-transform: capitalize;
+}
+
 .main-temperature {
   font-size: 50px;
 }
 
-.units {
-  color: #fff;
-}
 .time {
   color: #fff;
   font-size: 12px;
+}
+
+.unit {
+  color: #fff;
+  font-size: 20px;
 }
 .details {
   color: #fff;
