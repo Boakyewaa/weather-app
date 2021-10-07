@@ -1,3 +1,20 @@
+function formatDate(timestamp){
+  let dateTime = new Date(timestamp);
+  let hours = dateTime.getHours();
+  if (hours < 10){
+    hours = `0${hours}`;
+  }
+
+  let minutes = dateTime.getMinutes();
+  if (minutes < 10){
+    minutes = `0${minutes}`;
+  }
+
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let day = days[dateTime.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
+
 function displayTemperature(response){
  
   let temperatureElement = document.querySelector("#main-temp");
