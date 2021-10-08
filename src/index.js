@@ -31,6 +31,9 @@ function displayTemperature(response){
   pressureElement.innerHTML = response.data.main.pressure;
   let dateElement = document.querySelector("#date-time");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("alt",response.data.weather[0].description);
 }
 let apiKey = "1504ebb010471d47f96224deb5dd303e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
