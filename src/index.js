@@ -35,7 +35,21 @@ function displayTemperature(response){
   iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt",response.data.weather[0].description);
 }
-let apiKey = "1504ebb010471d47f96224deb5dd303e";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
+
+function search(city){
+  let apiKey = "1504ebb010471d47f96224deb5dd303e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
+}
+  
+
+function handleCity(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-city-input");
+  search(cityInput.value);
+}
+search("Accra");
+
+let form = document.querySelector("#search-engine");
+form.addEventListener("submit", handleCity);

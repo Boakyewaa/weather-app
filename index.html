@@ -19,10 +19,10 @@
             <div class="Weather-body">
                 <!-- Form for search engine -->
                 <div class="search-form">
-                    <form class="search-engine">
+                    <form id="search-engine">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Enter a city..."
-                                id="search-city-input">
+                                id="search-city-input" autocomplete="off">
                             <input type="submit" value="Search" class="btn btn-primary" <i
                                 class="fa fa-search fa-fw"></i>
                         </div>
@@ -32,9 +32,9 @@
                 <!-- display of weather information  -->
                 <div class="weather-info">
                     <div class="row">
-                        <h1 class="description" id="weather-description">Cloudy</h1>
+                        <h1 class="description" id="weather-description"></h1>
                         <div class="city-name">
-                            <h3 id="city-to-display">Accra, GH <i class="fas fa-home"></i></h3>
+                            <h3 id="city-to-display"><i class="fas fa-home"></i></h3>
                         </div>
                         <div class="row">
                             <div class="col-12">
