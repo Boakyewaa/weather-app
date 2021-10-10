@@ -41,6 +41,14 @@
 .unit {
   color: #fff;
   font-size: 20px;
+  position: relative;
+  top: -28px;
+  text-decoration: none;
+  cursor: default;
+}
+
+.unit:hover {
+  color: #fff;
 }
 .details {
   color: #fff;

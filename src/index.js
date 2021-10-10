@@ -18,7 +18,8 @@ function formatDate(timestamp){
 function displayTemperature(response){
  
   let temperatureElement = document.querySelector("#main-temp");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  celciusTemperature = response.data.main.temp;
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
   let cityElement = document.querySelector("#city-to-display");
   cityElement.innerHTML = `${response.data.name} <i class="fas fa-home"></i>`;
   let description = document.querySelector("#weather-description");
@@ -34,6 +35,8 @@ function displayTemperature(response){
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt",response.data.weather[0].description);
+
+  
 }
 
 function search(city){
@@ -49,7 +52,33 @@ function handleCity(event) {
   let cityInput = document.querySelector("#search-city-input");
   search(cityInput.value);
 }
-search("Accra");
+
+function displayFahrenheitTemp(event){
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#main-temp");
+
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahreinheitTemperature = (celciusTemperature * 1.8) + 32;
+  temperatureElement.innerHTML = Math.round(fahreinheitTemperature);
+  }
+
+ function displayCelciusTemperature(event){
+   event.preventDefault();
+   let temperatureElement = document.querySelector("#main-temp");
+    temperatureElement.innerHTML = Math.round(celciusTemperature);
+ } 
+
+  let celciusTemperature = null;
 
 let form = document.querySelector("#search-engine");
 form.addEventListener("submit", handleCity);
+
+
+let fahrenheitLink = document.querySelector("#fahrenheitLink");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celciusLink = document.querySelector("#celciusLink");
+celciusLink.addEventListener("click", displayCelciusTemperature);
+
+search("Accra");
