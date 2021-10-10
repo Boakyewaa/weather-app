@@ -1,7 +1,15 @@
 .application {
   max-width: 800px;
   margin: 40px auto;
-  background-image: url("images/background-img.jpg");
+  background: linear-gradient(
+    177deg,
+    rgb(65, 156, 149) 20%,
+    rgb(130, 211, 186) 84%
+  );
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
 }
 .search-engine {
   max-width: 400px;
@@ -15,14 +23,14 @@
   margin: 20px auto;
   border: 10px;
   border-radius: 20px;
-  background-color: #027c78;
+  background-color: #004d45;
   padding: 10px;
   text-align: center;
 }
-
 .input-group {
   position: relative;
   max-width: 400px;
+  margin: 0 auto;
 }
 
 .description {
@@ -36,6 +44,10 @@
 .time {
   color: #fff;
   font-size: 12px;
+}
+
+#fahrenheitLink {
+  color: #597dff;
 }
 
 .unit {
@@ -55,11 +67,15 @@
 }
 .container {
   text-align: center;
-  max-width: 600px;
+  max-width: 400px;
   margin-top: 40px;
 }
 .weather-details {
   color: #fff;
+  max-width: 300px;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .row {

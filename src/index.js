@@ -56,9 +56,6 @@ function handleCity(event) {
 function displayFahrenheitTemp(event){
   event.preventDefault();
   let temperatureElement = document.querySelector("#main-temp");
-
-  celciusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
   let fahreinheitTemperature = (celciusTemperature * 1.8) + 32;
   temperatureElement.innerHTML = Math.round(fahreinheitTemperature);
   }
