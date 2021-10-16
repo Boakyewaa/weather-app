@@ -29,8 +29,8 @@ function displayForecast(response){
 
   let forecastHTML = `<div class="row">`;
   
-  forecast.forEach(function(forecastDay){
-    
+  forecast.forEach(function(forecastDay, index){
+    if (index < 6){
     forecastHTML = forecastHTML +
     `
                     <div class="col-2">
@@ -43,6 +43,7 @@ function displayForecast(response){
                     </div>
                   
                   `;
+                  }
    });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -121,5 +122,20 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 let celciusLink = document.querySelector("#celciusLink");
 celciusLink.addEventListener("click", displayCelciusTemperature);
 
+//Current Location
+function searchLocation(position){
+
+  let apiKey = "1504ebb010471d47f96224deb5dd303e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature); 
+}
+function getCurrentLocation(event){
+  event.preventDefault();
+navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+let locationButton = document.querySelector("#current-location");
+locationButton.addEventListener("click", getCurrentLocation);
+
 search("Accra");
-displayForecast();

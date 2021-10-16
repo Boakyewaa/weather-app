@@ -17,6 +17,13 @@
   right: 0;
   left: 0;
 }
+
+.location-icon {
+  position: relative;
+  margin-left: auto;
+  margin-right: 0px;
+  color: orange;
+}
 .weather-info {
   display: block;
   max-width: 500px;
