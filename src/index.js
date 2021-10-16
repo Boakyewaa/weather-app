@@ -14,6 +14,35 @@ function formatDate(timestamp){
   let day = days[dateTime.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+function displayForecast(){
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thur", "Fri", "Sat", "Sun", "Mon", "Tue", "wed"];
+  days.forEach(function(day){
+    forecastHTML = 
+    forecastHTML +
+    `
+                    <div class="col-2">
+                      <div class="weather-forecast-date">Tue</div>
+                      <img src="https//openweathermap.org/img/wn/50d@2x.png" alt="weather-icon" width=""/>
+                        <div class="weather-forecast-temp">
+                         <span class="weather-forecast-temp-max">18°</span>
+                        <span class="weather-forecast-temp-min">14°</span>
+                       </div>
+                    </div>
+                  
+                  `;
+   });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+
+  
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+}
 
 function displayTemperature(response){
  
@@ -36,7 +65,7 @@ function displayTemperature(response){
   iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt",response.data.weather[0].description);
 
-  
+  getForecast(response.data.coord);
 }
 
 function search(city){
@@ -79,3 +108,4 @@ let celciusLink = document.querySelector("#celciusLink");
 celciusLink.addEventListener("click", displayCelciusTemperature);
 
 search("Accra");
+displayForecast();
