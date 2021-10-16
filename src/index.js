@@ -14,21 +14,31 @@ function formatDate(timestamp){
   let day = days[dateTime.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-function displayForecast(){
+function formatDay(timestamp){
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+
+}
+
+function displayForecast(response){
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thur", "Fri", "Sat", "Sun", "Mon", "Tue", "wed"];
-  days.forEach(function(day){
-    forecastHTML = 
-    forecastHTML +
+  
+  forecast.forEach(function(forecastDay){
+    
+    forecastHTML = forecastHTML +
     `
                     <div class="col-2">
-                      <div class="weather-forecast-date">Tue</div>
-                      <img src="https//openweathermap.org/img/wn/50d@2x.png" alt="weather-icon" width=""/>
+                      <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+                      <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="weather-icon" width="50px"/>
                         <div class="weather-forecast-temp">
-                         <span class="weather-forecast-temp-max">18°</span>
-                        <span class="weather-forecast-temp-min">14°</span>
+                         <span class="weather-forecast-temp-max">${Math.round(forecastDay.temp.max)}°</span>
+                        <span class="weather-forecast-temp-min">${Math.round(forecastDay.temp.min)}°</span>
                        </div>
                     </div>
                   
@@ -42,6 +52,10 @@ function displayForecast(){
 
 function getForecast(coordinates) {
   console.log(coordinates);
+  let apiKey = "1504ebb010471d47f96224deb5dd303e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response){
